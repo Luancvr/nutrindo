@@ -80,18 +80,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Nutrindo — Alimentação personalizada para sua rotina" },
+      { title: "Nutrindo — Alimentação planejada para sua rotina" },
       {
         name: "description",
         content:
-          "Assinatura de alimentação personalizada para quem quer comer melhor sem cozinhar. Descubra seu Perfil Nutrindo em poucos minutos.",
+          "Assinatura de alimentação planejada para quem quer comer melhor sem cozinhar. Descubra seu Perfil Nutrindo em poucos minutos.",
       },
       { name: "author", content: "Nutrindo" },
-      { property: "og:title", content: "Nutrindo — Alimentação personalizada para sua rotina" },
+      { property: "og:title", content: "Nutrindo — Alimentação planejada para sua rotina" },
       {
         property: "og:description",
         content:
-          "Assinatura de alimentação personalizada para quem quer comer melhor sem cozinhar. Descubra seu Perfil Nutrindo.",
+          "Assinatura de alimentação planejada para quem quer comer melhor sem cozinhar. Descubra seu Perfil Nutrindo.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

@@ -175,9 +175,7 @@ function Hero() {
               Descobrir meu plano ideal
               <ArrowRight size={18} />
             </a>
-            <a href="#como-funciona" className="btn-ghost">
-              Como funciona
-            </a>
+            
           </div>
           <div className="mt-12 flex items-center gap-4 text-xs text-left text-brand-soft">
             <div className="flex items-center gap-2">
@@ -395,7 +393,7 @@ function Diagnostic() {
                   Entrega semanal
                 </div>
                 <div className="flex items-center gap-2 text-sm text-graphite-soft">
-                  <Leaf size={16} className="text-brand-soft" />
+                  <Leaf size={16} className="text-green-soft" />
                   Equilibrado
                 </div>
               </div>
@@ -1033,12 +1031,12 @@ function Footer() {
         <div>
           <Logo />
           <p className="mt-4 max-w-sm text-sm text-graphite-soft">
-            Alimentação personalizada para pessoas com rotina corrida.
+            Alimentação planejada para pessoas com rotina corrida.
           </p>
         </div>
         <div className="flex flex-wrap items-center gap-3">
           <a
-            href="#"
+            href="https://wa.me/+5573998409163"
             className="inline-flex items-center gap-2 rounded-full border border-line px-4 py-2 text-sm text-graphite transition-colors hover:border-brand hover:text-brand"
           >
             <MessageCircle size={16} /> WhatsApp
