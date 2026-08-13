@@ -9,16 +9,19 @@
   --color-background: #ffffff;
   --color-foreground: #2E2E2E;
 
-  --color-cream: #F4E9D3
+  --color-cream: #FFEBC7;
+  --color-green: #7EB343;
+  --color-green-soft: #CCE5A1;
+  --color-dark-green: #0B3D17;
   ;
-  --color-graphite: #2F4830;
+  --color-graphite: #2F6B3D;
   --color-graphite-soft: #5a5a5a;
   --color-graphite-mute: #8a8a8a;
 
-  --color-brand: #809557;
-  --color-brand-soft: #FBF8F2;
+  --color-brand: #7EB343;
+  --color-brand-soft: #F9F3E8;
   --color-brand-tint: #eef2ea;
-  --color-accent-orange: #E1914A;
+  --color-accent-orange: #F78B1F;
 
   --color-line: #ececec;
   --color-line-soft: #f2f0ea;
@@ -118,12 +121,12 @@
   height: 3.25rem;
   padding-inline: 1.5rem;
   border-radius: 999px;
-  color: var(--color-graphite);
+  color: var(--color-brand-soft);
   font-weight: 500;
   font-size: 0.975rem;
   transition: color 200ms, background 200ms;
   &:hover {
-    background: var(--color-cream);
+    border: 1px solid var(--color-cream);
   }
 }
 

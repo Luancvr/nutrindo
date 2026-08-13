@@ -20,6 +20,7 @@ import {
   MessageCircle,
 } from "lucide-react";
 import heroImg from "@/assets/hero.jpg";
+import benefitImg from "@/assets/benefit.jpg";
 
 export const Route = createFileRoute("/")({
   component: Landing,
@@ -135,25 +136,42 @@ function Nav() {
 
 function Hero() {
   return (
-    <section className="relative overflow-hidden">
-      <OrganicBg />
-      <div className="container-editorial relative grid grid-cols-1 items-center gap-14 pb-24 pt-16 md:pb-32 md:pt-24 lg:grid-cols-[1.05fr_1fr] lg:gap-20">
-        <div className="animate-rise">
-          <span className="eyebrow">
-            <span className="h-1.5 w-1.5 rounded-full bg-accent-orange" />
-             ALIMENTAÇÃO PLANEJADA para você
-          </span>
-          <h1 className="mt-6 text-[2.6rem] font-semibold leading-[1.10] tracking-[-0.03em] text-graphite sm:text-6xl lg:text-[4.25rem]">
-            Sua rotina já
-            <br></br>exige demais.{" "}
-            <span className="text-brand">Sua alimentação não deveria
-              <br></br>ser mais uma preocupação.</span>
-          </h1>
-          <p className="mt-7 max-w-xl text-lg leading-relaxed text-graphite-soft">
-            Nós cuidamos do planejamento, da produção e das entregas para que comer bem seja a parte mais fácil do seu dia.
-          </p>
-          <div className="mt-10 flex flex-wrap items-center gap-3">
-            <a href="#diagnostico" className="btn-primary">
+   <section className="relative w-full min-h-[600px] lg:min-h-[700px] flex items-center overflow-hidden bg-gray-900">
+  
+  {/* 1. IMAGEM DE FUNDO (Sem z-index negativo para não sumir atrás do site) */}
+  <img 
+    src={heroImg} 
+    alt="Refeição Nutrindo pronta" 
+    className="absolute inset-0 w-full h-full object-cover"
+  />
+  
+  {/* 2. CAMADA ESCURA (Fica automaticamente em cima da imagem por vir depois dela no HTML) */}
+  <div className="absolute inset-0 bg-black/65" />
+
+  {/* 3. O CONTEÚDO (Garante que fica na frente de tudo usando relative e z-10) */}
+  <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-20 text-white">
+    <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
+      
+      {/* Selo do topo */}
+      <span className="text-brand-soft font-semibold tracking-wider uppercase text-sm">
+        • Alimentação planejada para você
+      </span>
+      
+      {/* Título Principal */}
+      <h1 className="text-5xl sm:text-8xl lg:text-6xl font-bold tracking-tight mt-9 mb-6 text-white">
+        Sua rotina já exige demais.
+        <br></br>
+        Sua alimentação não deveria ser mais uma preocupação.
+      </h1>
+      
+      {/* Subtítulo */}
+      <p className="text-lg text-gray-200 mb-8 max-w-xl">
+        Nós cuidamos do planejamento, da produção e das entregas para que comer bem seja a parte mais fácil do seu dia.
+      </p>
+      
+      {/* Botões */}
+      <div className="mt-5 flex justify-center gap-2 flex-wrap">
+            <a href="#final" className="btn-primary">
               Descobrir meu plano ideal
               <ArrowRight size={18} />
             </a>
@@ -161,7 +179,7 @@ function Hero() {
               Como funciona
             </a>
           </div>
-          <div className="mt-12 flex items-center gap-4 text-xs text-graphite-mute">
+          <div className="mt-12 flex items-center gap-4 text-xs text-left text-brand-soft">
             <div className="flex items-center gap-2">
               <ShieldCheck size={30} className="text-brand" />
               Sem fidelidade
@@ -176,42 +194,12 @@ function Hero() {
               <Heart size={30} className="text-brand" />
               Para você
             </div>
-          </div>
-        </div>
-
-        <div className="relative animate-fade">
-          <div className="absolute -inset-6 -z-10 rounded-[2.5rem] bg-cream" />
-          <div
-            className="absolute -right-6 -top-6 h-40 w-40 rounded-full opacity-40 blur-3xl"
-            style={{ background: "radial-gradient(circle, #89A95F55, transparent 70%)" }}
-          />
-          <div className="overflow-hidden rounded-[2rem] gradient-to-b from-cream to-brand-soft">
-            <img
-              src={heroImg}
-              alt="Refeição Nutrindo pronta em embalagem térmica, com arroz, grão de bico, legumes e frango grelhado."
-              width={1280}
-              height={1680}
-              className="h-[560px] w-full object-cover"
-            />
-          </div>
-          <div className="absolute -bottom-6 -left-6 w-64 rounded-2xl border border-line bg-white p-4 shadow-[var(--shadow-soft)]">
-            <div className="flex items-center gap-3">
-              <div className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-brand-tint">
-                <Sparkles size={18} className="text-brand" />
-              </div>
-              <div className="min-w-0">
-                <div className="text-[11px] uppercase tracking-widest text-graphite-mute">
-                  Esta semana
-                </div>
-                <div className="truncate text-sm font-semibold text-graphite">
-                  10 refeições prontas
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
-    </section>
+
+    </div>
+  </div>
+
+</section>
   );
 }
 
@@ -227,7 +215,7 @@ function Problem() {
       <div className="container-editorial">
         <Reveal>
           <div className="mx-auto max-w-3xl text-center">
-            <span className="eyebrow justify-center">o problema</span>
+            <span className="eyebrow justify-center ">o problema</span>
             <h2 className="mt-6 text-4xl font-semibold leading-[1.15] tracking-[-0.03em] text-graphite sm:text-5xl">
               A correria não precisa decidir o que você come.
             </h2>
@@ -282,14 +270,16 @@ function HowItWorks() {
     },
   ];
   return (
-    <section id="como-funciona" className="relative overflow-hidden bg-gradient-to-b from-cream to-brand-soft py-28">
+    <section id="como-funciona" className="relative overflow-hidden bg-gradient-to-b from-cream to-white py-28">
       <OrganicBg />
       <div className="container-editorial relative">
         <Reveal>
           <div className="mx-auto max-w-2xl text-center">
             <span className="eyebrow justify-center">Como funciona</span>
             <h2 className="mt-6 text-4xl font-semibold leading-[1.15] tracking-[-0.03em] text-graphite sm:text-5xl">
-              Comer bem deveria ser simples.
+              Comer bem deveria
+              <br></br>
+              ser simples.
             </h2>
           </div>
         </Reveal>
@@ -365,7 +355,7 @@ function Diagnostic() {
 
         <Reveal delay={150}>
           <div className="relative">
-            <div className="absolute -inset-4 -z-10 rounded-[2.5rem] bg-cream" />
+            <div className="absolute -inset-4 -z-10 rounded-[2.5rem] " />
             <div className="rounded-[2rem] border border-line bg-white p-8 shadow-[var(--shadow-soft)]">
               <div className="flex items-center justify-between">
                 <span className="eyebrow">Seu perfil</span>
@@ -417,63 +407,295 @@ function Diagnostic() {
   );
 }
 
+function Journey() {
+  const steps = [
+    {
+      title: "Confirmamos seu plano",
+      text: "Após o diagnóstico, validamos suas informações e iniciamos sua assinatura.",
+    },
+    {
+      title: "Planejamos sua alimentação",
+      text: "Nossa equipe organiza uma alimentação alinhada aos seus objetivos e restrições.",
+    },
+    {
+      title: "Produzimos suas refeições",
+      text: "Tudo é preparado para que sua semana comece organizada e sem improvisos.",
+    },
+    {
+      title: "Entregamos sua semana",
+      text: "Você recebe todas as refeições prontas para consumir durante a semana.",
+    },
+  ];
+
+  return (
+    <section className="bg-gradient-to-b from-green-soft to-white py-28">
+      <div className="container-editorial grid grid-cols-1 items-center gap-16 lg:grid-cols-[0.95fr_1fr]">
+
+        {/* ESQUERDA */}
+
+        <Reveal>
+
+          <span className="eyebrow">Sua jornada</span>
+
+          <h2 className="mt-6 text-4xl font-semibold leading-[1.15] tracking-[-0.03em] text-graphite sm:text-5xl">
+            Sua semana
+            <br />
+            começa aqui.
+          </h2>
+
+          <p className="mt-6 max-w-lg text-lg text-graphite-soft">
+            Você não precisa decidir o que cozinhar,
+            fazer compras ou organizar o cardápio da semana.
+
+            A Nutrindo cuida dessa parte para você.
+          </p>
+
+          <div className="mt-10 rounded-[2rem] bg-white border border-line p-6">
+
+            <div className="flex items-center gap-3">
+
+              <div className="grid h-12 w-12 place-items-center rounded-full bg-brand-tint">
+
+                <Leaf size={20} className="text-brand" />
+
+              </div>
+
+              <div>
+
+                <div className="text-sm text-graphite-mute">
+                  Resultado
+                </div>
+
+                <div className="font-semibold text-graphite">
+                  Sua alimentação deixa de ser uma preocupação.
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </Reveal>
+
+        {/* DIREITA */}
+
+        <Reveal delay={150}>
+
+          <div className="space-y-4">
+
+            {steps.map((step, index) => (
+
+              <Reveal key={step.title} delay={index * 100}>
+
+                <div className="card-soft flex gap-5 p-6">
+
+                  <div className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-brand-tint font-semibold text-brand">
+
+                    {String(index + 1).padStart(2, "0")}
+
+                  </div>
+
+                  <div>
+
+                    <h3 className="text-lg font-semibold text-graphite">
+
+                      {step.title}
+
+                    </h3>
+
+                    <p className="mt-2 text-sm leading-7 text-graphite-soft">
+
+                      {step.text}
+
+                    </p>
+
+                  </div>
+
+                </div>
+
+              </Reveal>
+
+            ))}
+
+          </div>
+
+        </Reveal>
+
+      </div>
+    </section>
+  );
+}
+
 function Benefits() {
   const items = [
     {
       icon: Sparkles,
       t: "Planejamento inteligente",
-      d: "Recomendamos um plano alinhado aos seus objetivos e necessidades.",
+      d: "Um plano pensado para seus objetivos e restrições alimentares.",
     },
     {
       icon: Clock,
-      t: "Economia de tempo",
-      d: "Sem decidir o que cozinhar todos os dias.",
+      t: "Mais tempo para você",
+      d: "Menos tempo decidindo o que comer. Mais tempo para viver sua rotina.",
     },
     {
       icon: Leaf,
       t: "Refeições equilibradas",
-      d: "Cardápios desenvolvidos para apoiar seu objetivo.",
+      d: "Preparadas para nutrir seu dia de forma prática e consistente.",
     },
     {
       icon: Truck,
       t: "Entrega semanal",
-      d: "Duas entregas organizadas toda semana.",
-    },
-    {
-      icon: Heart,
-      t: "Evolui com você",
-      d: "Ajustamos o planejamento conforme seu retorno ao longo das semanas.",
+      d: "Receba todas as refeições da semana em uma única entrega.",
     },
   ];
+
   return (
     <section className="bg-white py-28">
-      <div className="container-editorial">
+      <div className="container-editorial grid grid-cols-1 items-center gap-16 lg:grid-cols-[0.9fr_1fr]">
+
+        {/* Conteúdo */}
+
         <Reveal>
-          <div className="max-w-2xl">
-            <span className="eyebrow">Por que a Nutrindo</span>
+          <div>
+
+            <span className="eyebrow">
+              No dia a dia
+            </span>
+
             <h2 className="mt-6 text-4xl font-semibold leading-[1.15] tracking-[-0.03em] text-graphite sm:text-5xl">
-              Tudo pensado para facilitar sua semana.
+              Tudo pronto para
+              <br />
+              acompanhar sua semana.
             </h2>
+
+            <p className="mt-6 max-w-lg text-lg text-graphite-soft">
+              Da escolha do plano até a entrega,
+              cada detalhe é pensado para tornar a alimentação
+              uma parte simples da sua rotina.
+            </p>
+
+            <div className="mt-10 space-y-4">
+
+              {items.map((item, index) => (
+
+                <Reveal key={item.t} delay={index * 80}>
+
+                  <div className="card-soft flex items-start gap-4 p-5">
+
+                    <div className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-brand-tint">
+
+                      <item.icon
+                        size={18}
+                        className="text-brand"
+                      />
+
+                    </div>
+
+                    <div>
+
+                      <h3 className="text-base font-semibold text-graphite">
+                        {item.t}
+                      </h3>
+
+                      <p className="mt-1 text-sm leading-relaxed text-graphite-soft">
+                        {item.d}
+                      </p>
+
+                    </div>
+
+                  </div>
+
+                </Reveal>
+
+              ))}
+
+            </div>
+
+            <a href="#final" className="btn-primary mt-10">
+              Descobrir meu Perfil
+              <ArrowRight size={18} />
+            </a>
+
           </div>
+
         </Reveal>
 
-        <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {items.map((it, i) => (
-            <Reveal key={it.t} delay={i * 70}>
-              <div className="card-soft flex h-full flex-col p-8">
-                <div className="grid h-11 w-11 place-items-center rounded-full bg-brand-tint">
-                  <it.icon size={20} className="text-brand" />
+        {/* Imagem */}
+
+        <Reveal delay={150}>
+
+          <div className="relative animate-fade">
+
+            <div className="absolute -inset-6 -z-10 rounded-[2.5rem]" />
+
+            <div
+              className="absolute -right-6 -top-6 h-40 w-40 rounded-full opacity-40 blur-3xl"
+              style={{
+                background:
+                  "radial-gradient(circle, #89A95F55, transparent 70%)",
+              }}
+            />
+
+            <div className="overflow-hidden rounded-[2rem] bg-gradient-to-b from-cream to-brand-soft">
+
+              <img
+                src={benefitImg}
+                alt="Refeição saudável da Nutrindo pronta para consumo."
+                width={1280}
+                height={1680}
+                className="h-[760px] w-full object-cover"
+              />
+
+            </div>
+
+            {/* Badge */}
+              <div className="mx-auto flex max-w-2xl flex-col items-center">
+                <div className="absolute bottom-4 w-78 rounded-2xl border border-line bg-white p-5 shadow-[var(--shadow-soft)]">
+
+              <div className="flex items-center gap-3">
+
+                <div className="grid h-12 w-15 place-items-center rounded-full bg-brand-tint">
+
+                  <Sparkles
+                    size={18}
+                    className="text-brand"
+                  />
+
                 </div>
-                <h3 className="mt-8 text-lg font-semibold tracking-tight text-graphite">
-                  {it.t}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-graphite-soft">
-                  {it.d}
-                </p>
+
+                <div>
+
+                  <div className="text-[11px] uppercase tracking-widest text-graphite-mute">
+
+                    Esta semana
+
+                  </div>
+
+                  <div className="mt-1 text-base font-semibold text-graphite">
+
+                    5 refeições prontas
+
+                  </div>
+
+                  <div className="mt-1 text-sm text-graphite-soft">
+
+                    Organizadas para acompanhar sua rotina.
+
+                  </div>
+
+                </div>
+
               </div>
-            </Reveal>
-          ))}
-        </div>
+
+            </div>
+
+          </div>
+          </div>
+
+        </Reveal>
+
       </div>
     </section>
   );
@@ -498,13 +720,14 @@ function Testimonials() {
     },
   ];
   return (
-    <section id="depoimentos" className="bg-cream py-28">
+    <section id="depoimentos" className="bg-gradient-to-b from-white to-cream py-28">
       <div className="container-editorial">
         <Reveal>
           <div className="mx-auto max-w-2xl text-center">
             <span className="eyebrow justify-center">Histórias</span>
             <h2 className="mt-6 text-4xl font-semibold leading-[1.15] tracking-[-0.03em] text-graphite sm:text-5xl">
-              Quem já vive com a Nutrindo.
+              Quem já vive com<br></br>
+              a Nutrindo.
             </h2>
           </div>
         </Reveal>
@@ -529,6 +752,147 @@ function Testimonials() {
             </Reveal>
           ))}
         </div>
+      </div>
+    </section>
+  );
+}
+
+function RoutineComparison() {
+  const before = [
+    "Decidir o que comer todos os dias.",
+    "Pedir delivery por impulso.",
+    "Ir ao mercado várias vezes na semana.",
+    "Cozinhar mesmo quando está cansado.",
+  ];
+
+  const after = [
+    "Uma semana inteira já organizada.",
+    "Refeições alinhadas aos seus objetivos.",
+    "Mais tempo para descansar ou produzir.",
+    "É só aquecer e aproveitar.",
+  ];
+
+  return (
+    <section className="bg-white py-28">
+      <div className="container-editorial">
+
+        <Reveal>
+
+          <div className="mx-auto max-w-4xl text-center">
+
+            <span className="eyebrow">
+              Uma nova rotina
+            </span>
+
+            <h2 className="mt-6 text-4xl font-semibold leading-[1.12] tracking-[-0.03em] text-graphite sm:text-5xl">
+              Quando a alimentação
+              <br></br>deixa de ser uma preocupação,
+              <br></br>
+              outras coisas passam a importar.
+            </h2>
+
+            <p className="mx-auto mt-6 max-w-2xl text-lg text-graphite-soft">
+              A Nutrindo organiza sua alimentação para que você tenha mais tempo
+              para viver sua rotina.
+            </p>
+
+          </div>
+
+        </Reveal>
+
+        <div className="mt-20 grid gap-8 lg:grid-cols-2">
+
+          {/* Antes */}
+
+          <Reveal>
+
+            <div className="card-soft h-full p-8">
+
+              <span className="eyebrow text-graphite-mute">
+                Antes
+              </span>
+
+              <h3 className="mt-5 text-3xl font-semibold text-graphite">
+                A alimentação depende da correria.
+              </h3>
+
+              <div className="mt-8 space-y-4">
+
+                {before.map((item) => (
+
+                  <div
+                    key={item}
+                    className="flex items-start gap-4 rounded-2xl border border-line p-4"
+                  >
+
+                    <div className="mt-2.5 h-1.5 w-1.5 rounded-full bg-orange-400" />
+
+                    <p className="text-graphite-soft">
+
+                      {item}
+
+                    </p>
+
+                  </div>
+
+                ))}
+
+              </div>
+
+            </div>
+
+          </Reveal>
+
+          {/* Depois */}
+
+          <Reveal delay={120}>
+
+            <div className="card-soft h-full border-brand/20 bg-brand-tint p-8">
+
+              <span className="eyebrow text-brand">
+                Com a Nutrindo
+              </span>
+
+              <h3 className="mt-5 text-3xl font-semibold text-graphite">
+                Sua semana começa organizada.
+              </h3>
+
+              <div className="mt-8 space-y-4">
+
+                {after.map((item) => (
+
+                  <div
+                    key={item}
+                    className="flex items-start gap-4 rounded-2xl bg-white p-4"
+                  >
+
+                    <div className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-brand-tint">
+
+                      <Check
+                        size={14}
+                        className="text-brand"
+                      />
+
+                    </div>
+
+                    <p className="text-graphite">
+
+                      {item}
+
+                    </p>
+
+                  </div>
+
+                ))}
+
+              </div>
+
+            </div>
+
+          </Reveal>
+
+        </div>
+
       </div>
     </section>
   );
@@ -580,7 +944,7 @@ function Faq() {
                 <button
                   key={it.q}
                   onClick={() => setOpen(isOpen ? null : i)}
-                  className="group flex w-full flex-col px-6 py-6 text-left transition-colors hover:bg-cream/50"
+                  className="group flex w-full flex-col px-6 py-6 text-left transition-colors hover:bg-brand-soft/50"
                 >
                   <div className="flex items-center justify-between gap-6">
                     <span className="text-base font-semibold text-graphite">
@@ -646,10 +1010,10 @@ function FinalCta() {
               <br></br>ser uma preocupação.
             </h2>
             <a
-              href="#"
-              className="mt-12 inline-flex h-14 items-center justify-center gap-2 rounded-full bg-white px-9 text-base font-semibold text-brand shadow-[0_20px_50px_-20px_rgba(0,0,0,0.4)] transition-transform hover:-translate-y-0.5"
+              href="https://wa.me/+5573998409163?text=Quero%20descobrir%20meu%20plano%20ideal!"
+              className="mt-12 inline-flex h-14 items-center justify-center gap-2 rounded-full bg-white px-9 text-base font-semibold text-dark-green shadow-[0_20px_50px_-20px_rgba(0,0,0,0.4)] transition-transform hover:-translate-y-0.5"
             >
-              Começar meu diagnóstico
+              Descobrir meu plano ideal
               <ArrowRight size={18} />
             </a>
             <p className="mt-6 text-sm text-white/70">
@@ -680,7 +1044,7 @@ function Footer() {
             <MessageCircle size={16} /> WhatsApp
           </a>
           <a
-            href="#"
+            href="https://www.instagram.com/nutrindoapp"
             className="inline-flex items-center gap-2 rounded-full border border-line px-4 py-2 text-sm text-graphite transition-colors hover:border-brand hover:text-brand"
           >
             <Instagram size={16} /> Instagram
@@ -710,8 +1074,10 @@ function Landing() {
       <Problem />
       <HowItWorks />
       <Diagnostic />
+      <Journey />
       <Benefits />
       <Testimonials />
+      <RoutineComparison />
       <Faq />
       <FinalCta />
       <Footer />
