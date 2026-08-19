@@ -1031,7 +1031,7 @@ function Footer() {
         <div>
           <Logo />
           <p className="mt-4 max-w-sm text-sm text-graphite-soft">
-            Alimentação planejada para pessoas com rotina corrida.
+            Alimentação planejada para sua rotina.
           </p>
         </div>
         <div className="flex flex-wrap items-center gap-3">
@@ -1050,7 +1050,7 @@ function Footer() {
         </div>
       </div>
       <div className="container-editorial mt-12 flex flex-col items-start justify-between gap-4 border-t border-line pt-8 text-xs text-graphite-mute md:flex-row md:items-center">
-        <div>© {new Date().getFullYear()} Nutrindo. Todos os direitos reservados.</div>
+        <div>© {new Date().getFullYear()} Nutrindo. Todos os direitos reservados - CNPJ: 68.614.088.0001-75</div>
         <div className="flex items-center gap-6">
           <a href="#" className="hover:text-graphite">
             Política de Privacidade
