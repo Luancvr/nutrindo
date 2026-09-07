@@ -1049,13 +1049,13 @@ function Footer() {
           </a>
         </div>
       </div>
-      <div className="container-editorial mt-12 flex flex-col items-start justify-between gap-4 border-t border-line pt-8 text-xs text-graphite-soft md:flex-row md:items-center">
-        <div>© {new Date().getFullYear()} BARBARA SUELLEN SANTOS CONCEICAO 68.614.088.0001-75</div>
+      <div className="container-editorial mt-12 flex flex-col items-start justify-between gap-4 border-t border-line pt-8 text-3em text-graphite-soft md:flex-row md:items-center">
+        <div>© {new Date().getFullYear()} - BARBARA SUELLEN SANTOS CONCEICAO 68.614.088.0001-75</div>
         <div className="flex items-center gap-6">
           <a href="#" className="hover:text-graphite">
             Política de Privacidade
           </a>
-          <a href="#" className="hover:text-graphite">
+          <a href="https://wa.me/+5573998409163" className="hover:text-graphite">
             Contato
           </a>
         </div>
