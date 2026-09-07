@@ -1058,9 +1058,10 @@ function Footer() {
           <a href="#" className="hover:text-graphite">
             Contato
           </a>
+           <p style="font-size: 1em;">BARBARA SUELLEN SANTOS CONCEICAO 68.614.088.0001-75</p>
         </div>
       </div>
-       <p style="font-size: 1em;">BARBARA SUELLEN SANTOS CONCEICAO 68.614.088.0001-75</p>
+      
     </footer>
   );
 }
